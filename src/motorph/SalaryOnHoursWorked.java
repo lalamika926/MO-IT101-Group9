@@ -8,8 +8,13 @@ package motorph;
 
 public class SalaryOnHoursWorked {
 
+    // SALARY CALCULATION
     public double getSalaryOnHoursWorked(double hourlyRate) {
         return hourlyRate * 160;
     }
+    /* 
+     * OOP PRINCIPLE: ENCAPSULATION
+     * The salary calculation logic is hidden inside a method.
+     */
 
 }

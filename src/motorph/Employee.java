@@ -1,7 +1,7 @@
 /*
  * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L., Valenzuela, A.
  * Date: March 2025
- * Project: MotorPH Payroll System - Reads Employee Data from CSV File
+ * Project: MotorPH Payroll System
  */
 
 package motorph;
@@ -27,7 +27,12 @@ public class Employee {
     private double clothingAllowance;
     private double semiMonthlyRate;
     private double hourlyRate;
+    /* 
+     * OOP PRINCIPLE: ENCAPSULATION
+     * The private access modifier ensures that these attributes cannot be accessed directly from outside the class.
+     */
 
+    // GETTER & SETTER METHODS
     public String getEmpNo() {
         return empNo;
     }
@@ -179,6 +184,8 @@ public class Employee {
     public void setHourlyRate(double hourlyRate) {
         this.hourlyRate = hourlyRate;
     }
-
-//    protected abstract int getTimeIn();
+    /* 
+     * OOP PRINCIPLE: ENCAPSULATION
+     * Provides controlled access to private variables without exposing it directly.
+     */
 }

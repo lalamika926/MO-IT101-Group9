@@ -40,7 +40,7 @@ public class EmployeeTimeRecord extends Employee {
     }
     /* 
      * OOP PRINCIPLE: ENCAPSULATION
-     * Provides controlled access to modify timeIn without exposing it directly.
+     * Provides controlled access to private variables without exposing it directly.
      */
 
 }

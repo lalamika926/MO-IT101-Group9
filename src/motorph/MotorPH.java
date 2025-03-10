@@ -6,7 +6,7 @@
 
 package motorph;
 
-import java.util.Scanner;
+import java.util.Scanner; // handle user input
 
 public class MotorPH {
 
@@ -17,7 +17,12 @@ public class MotorPH {
         employeeModel = new EmployeeModelFromFile();
         displayMainMenu();
     }
+    /* 
+     * OOP PRINCIPLE: POLYMORPHISM
+     * employeeModel is declared as EmployeeModel, but it holds an instance of EmployeeModelFromFile (a subclass).
+     */
 
+    // MAIN MENU DISPLAY
     private static void displayMainMenu() {
         System.out.println("\n============================================================");
         System.out.println("               MOTORPH PAYROLL MANAGEMENT SYSTEM            ");
@@ -34,7 +39,8 @@ public class MotorPH {
 
         processOption(option);
     }
-
+    
+    // SWITCH STATEMENT | determine which metjod to execute based on the user's choice
     private static void processOption(String option) {
         switch (option) {
             case "1":
@@ -58,7 +64,8 @@ public class MotorPH {
                 break;
         }
     }
-
+    
+    // EMPLOYEE DIRECTORY
     private static void displayEmployeeDirectory() {
         Employee[] employees = employeeModel.getEmployeeModelList();
 
@@ -90,6 +97,7 @@ public class MotorPH {
         }
     }
 
+    // COMPUTING NET SALARY
     private static void computeNetSalary() {
         Employee[] employees = employeeModel.getEmployeeModelList();
         SalaryDeductions salaryDeductions = new SalaryDeductions();
@@ -111,6 +119,7 @@ public class MotorPH {
         }
     }
 
+    // COMPUTING SALARY BASED ON WORK HOURS
     private static void computeSalaryBasedOnHours() {
         Employee[] employees = employeeModel.getEmployeeModelList();
         SalaryOnHoursWorked salaryCalculator = new SalaryOnHoursWorked();

@@ -1,36 +1,47 @@
 /*
  * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L., Valenzuela, A.
  * Date: March 2025
- * Project: MotorPH Payroll System - Reads Employee Data from CSV File
+ * Project: MotorPH Payroll System
  */
 
 package motorph;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.File; // handle file reading
+import java.io.FileNotFoundException; // handle errors when the file is missing
+import java.util.Scanner; // read and parse data from the file
 
-/**
- * read from csv
- */
 public class EmployeeModelFromFile extends EmployeeModel {
+/* 
+ * OOP PRINCIPLE: INHERITANCE
+ * EmployeeModelFromFile extends EmployeeModel, inheriting its attributes and behavior.
+ */
 
+    // CONSTRUCTOR
     public EmployeeModelFromFile() {
         File file = new File("src/resources/employee_data.csv");
         getDataFromFile(file);
         if (employees == null) { 
             employees = new Employee[0]; //null check
         }
+        /* 
+         * OOP PRINCIPLE: ABSTRACTION
+         * Calls getDataFromFile(), which handles the complexity of file reading.
+         */
     }
 
     @Override
     public Employee[] getEmployeeModelList() {
         return employees;
     }
+    /* 
+     * OOP PRINCIPLE: POLYMORPHISM
+     * getEmployeeModelList overrides the method to provide a specific implementation.
+     */
 
+    // READING DATA FROM FILE
     private void getDataFromFile(File textFile) {
         try {
-            if (!textFile.exists()) {//check if file exists to avoid FileNotFoundException
+            if (!textFile.exists()) { //check if file exists to avoid FileNotFoundException
                 System.out.println("Error: CSV file not found!");
                 employees = new Employee[0];
                 return;
@@ -38,19 +49,18 @@ public class EmployeeModelFromFile extends EmployeeModel {
 
             Scanner lineCounter = new Scanner(textFile);
             int lines = 0;
-            while (lineCounter.hasNextLine()) {
+            while (lineCounter.hasNextLine()) { // determine the number of employees through the number of lines
                 lineCounter.nextLine();
                 lines++;
             }
             lineCounter.close();
     
-            //header wont be included in the array
             employees = new Employee[lines - 1];
     
             Scanner scannerToGetFile = new Scanner(textFile);
             
             if (scannerToGetFile.hasNextLine()) {
-                scannerToGetFile.nextLine(); //skip line 1(header) on csv
+                scannerToGetFile.nextLine(); // skip line 1 (header) on csv file
             }
     
             int counter = 0;
@@ -64,13 +74,13 @@ public class EmployeeModelFromFile extends EmployeeModel {
     
         } catch (FileNotFoundException ex) {
             System.out.println("Error: File not found.");
-            employees = new Employee[0]; //null check
+            employees = new Employee[0]; // null check
         }
     }
-    
 
+    // PARSING CSV DATA
     private void parseDataFromScanner(Scanner scanner, int counter) {
-        scanner.useDelimiter(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"); //handles commas inside quotes
+        scanner.useDelimiter(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"); // custom delimiter: handles commas inside quotes
     
         if (!scanner.hasNext()) {
             System.out.println("Error: Empty line detected!");
@@ -102,16 +112,14 @@ public class EmployeeModelFromFile extends EmployeeModel {
         employees[counter] = employee;
     }
     
-    /**
-     * trimming and removing quotes
-     */
+    // HELPER METHOD
     private String cleanString(String value) {
         return value.replaceAll("^\"|\"$", "").trim();
     }
     
     private double parseDoubleOrZero(String value) {
         if (value.equalsIgnoreCase("N/A") || value.trim().isEmpty()) {
-            return 0.0; //N/A to 0.0
+            return 0.0; // converts N/A to 0.0
         }
         value = value.replaceAll("^\"|\"$", "").replace(",", ""); //remove quotes and commas
         return Double.parseDouble(value);
