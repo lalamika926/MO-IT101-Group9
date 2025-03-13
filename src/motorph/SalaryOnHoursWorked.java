@@ -1,7 +1,7 @@
 /*
  * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L., Valenzuela, A.
  * Date: March 2025
- * Project: MotorPH Payroll System - Reads Employee Data from CSV File
+ * Project: MotorPH Payroll System
  */
 
 package motorph;
