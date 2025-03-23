@@ -1,5 +1,5 @@
 /*
- * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L., Valenzuela, A.
+ * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L.
  * Date: March 2025
  * Project: MotorPH Payroll System
  */

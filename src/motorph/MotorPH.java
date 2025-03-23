@@ -1,5 +1,5 @@
 /*
- * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L., Valenzuela, A.
+ * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L.
  * Date: March 2025
  * Project: MotorPH Payroll System
  */
@@ -40,9 +40,9 @@ public class MotorPH {
         processOption(option);
     }
     
-    // SWITCH STATEMENT | determine which metjod to execute based on the user's choice
+    // SWITCH STATEMENT
     private static void processOption(String option) {
-        switch (option) {
+        switch (option) { // determine which method to execute based on the user's choice
             case "1":
                 displayEmployeeDirectory();
                 break;
@@ -81,8 +81,6 @@ public class MotorPH {
         System.out.println("\n============================================================");
         System.out.println("                      EMPLOYEE DIRECTORY                    ");
         System.out.println("============================================================");
-        System.out.println("Employee Number, Name, and Birthday");
-        System.out.println("------------------------------------------------------------");
 
         for (Employee employee : employees) {
             if (employee == null) {
@@ -100,17 +98,15 @@ public class MotorPH {
     // COMPUTING NET SALARY
     private static void computeNetSalary() {
         Employee[] employees = employeeModel.getEmployeeModelList();
-        SalaryDeductions salaryDeductions = new SalaryDeductions();
-
+        TotalDeductions deductions = new TotalDeductions();
+    
         System.out.println("\n============================================================");
         System.out.println("                          NET SALARY                        ");
         System.out.println("============================================================");
-        System.out.println("Employee Number, Name, Basic Salary, Net Salary");
-        System.out.println("------------------------------------------------------------");
-
+    
         for (Employee employee : employees) {
-            double netSalary = employee.getBasicSalary() - salaryDeductions.getTotalDeductions(employee.getBasicSalary());
-
+            double netSalary = employee.getBasicSalary() - deductions.calculateTotalDeductions(employee.getBasicSalary());
+    
             System.out.println("Employee No  : " + employee.getEmpNo());
             System.out.println("Name         : " + employee.getLastName() + ", " + employee.getFirstName());
             System.out.println("Basic Salary : " + employee.getBasicSalary());
@@ -127,15 +123,13 @@ public class MotorPH {
         System.out.println("\n============================================================");
         System.out.println("               SALARY BASED ON HOURS WORKED                 ");
         System.out.println("============================================================");
-        System.out.println("Employee Number, Name, Basic Salary, Salary Based on Hours Worked");
-        System.out.println("------------------------------------------------------------");
 
         for (Employee employee : employees) {
             double salaryOnHours = salaryCalculator.getSalaryOnHoursWorked(employee.getHourlyRate());
 
-            System.out.println("Employee No  : " + employee.getEmpNo());
-            System.out.println("Name         : " + employee.getLastName() + ", " + employee.getFirstName());
-            System.out.println("Basic Salary : " + employee.getBasicSalary());
+            System.out.println("Employee No            : " + employee.getEmpNo());
+            System.out.println("Name                   : " + employee.getLastName() + ", " + employee.getFirstName());
+            System.out.println("Basic Salary           : " + employee.getBasicSalary());
             System.out.println("Salary on Hours Worked : " + salaryOnHours);
             System.out.println("------------------------------------------------------------");
         }

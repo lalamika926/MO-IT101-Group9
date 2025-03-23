@@ -1,5 +1,5 @@
 /*
- * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L., Valenzuela, A.
+ * Programmer: A1101 GROUP 9 | Cocal, V., Franco, C., Jardeliza, L.
  * Date: March 2025
  * Project: MotorPH Payroll System
  */
@@ -19,24 +19,24 @@ public class EmployeeTimeRecord extends Employee {
      * The private access modifier ensures that these attributes cannot be accessed directly from outside the class.
      */
     
-    // GETTER METHOD for timeIn| returns the value of timeIn
+    // GETTER METHOD for timeIn
     public int getTimeIn() {
-        return timeIn;
+        return timeIn; // returns the value of timeIn
     }
 
-    // SETTER METHOD for timeIn | assigns the passed value to timeIn
+    // SETTER METHOD for timeIn 
     public void setTimeIn(int timeIn) {
-        this.timeIn = timeIn;
+        this.timeIn = timeIn; // assigns the passed value to timeIn
     }
 
-    // GETTER METHOD for timeOut| returns the value of timeOut
+    // GETTER METHOD for timeOut
     public int getTimeOut() {
-        return timeOut;
+        return timeOut; // returns the value of timeOut
     }
 
-    // SETTER METHOD for timeOut | assigns the passed value to timeOut
+    // SETTER METHOD for timeOut
     public void setTimeOut(int timeOut) {
-        this.timeOut = timeOut;
+        this.timeOut = timeOut; // assigns the passed value to timeOut
     }
     /* 
      * OOP PRINCIPLE: ENCAPSULATION
